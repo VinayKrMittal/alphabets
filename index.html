@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .pd >div{
+        width: 60px;
+        color: white;
+        height: 60px;
+        background-color: #0000ff70;
+        text-align: center;
+        line-height: 60px;
+        font-weight: bold;
+        font-size: 23px;
+        border-radius: 40px;
+        transition: all 2.07s;
+
+    }
+
+    .pd{
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: space-between;
+        background-image: url('images/bgimagesample.jpg');
+        background-repeat: round;
+    }
+    .playing{
+        transform: scale(1.5);
+        color: red !important;
+    }
+</style>
+<body>
+    <div class="pd">
+        <div data-key="65" class="key">
+            <kbd>A</kbd>
+        </div>
+        <div data-key="66" class="key">
+            <kbd>B</kbd>
+        </div>
+        <div data-key="67" class="key">
+            <kbd>C</kbd>
+        </div>
+        <div data-key="68" class="key">
+            <kbd>D</kbd>
+        </div>
+        <div data-key="69" class="key">
+            <kbd>E</kbd>
+        </div>
+        <div data-key="70" class="key">
+            <kbd>F</kbd>
+         </div>
+        <div data-key="71" class="key">
+            <kbd>G</kbd>
+        </div>
+        <div data-key="72" class="key">
+            <kbd>H</kbd>
+        </div>
+    </div>
+    <audio data-key=65 src="sounds/a.mp3"></audio>
+    <audio data-key=66 src="sounds/b.mp3"></audio>
+    <audio data-key=67 src="sounds/c.mp3"></audio>
+    <audio data-key=68 src="sounds/d.mp3"></audio>
+    <audio data-key=69 src="sounds/e.mp3"></audio>
+    <audio data-key=70 src="sounds/f.mp3"></audio>
+    <audio data-key=71 src="sounds/g.mp3"></audio>
+    <audio data-key=72 src="sounds/h.mp3"></audio>
+</body>
+<script>
+    window.addEventListener('keydown',((e)=>play(e)));
+    document.querySelectorAll('.key').forEach(elem => {
+        elem.addEventListener('click',function(e){
+           let key = this.getAttribute('data-key');
+           play(e,key);
+        });
+        elem.addEventListener('transitionend',function(e){
+            if(e.propertyName != 'transform'){
+                return;
+            }
+            console.log('inside this',this);
+        this.classList.remove('playing');
+    })});
+
+    function play(e,key){
+        console.log('inside play');
+        let keyCode = e.keyCode;
+        if(!keyCode){
+            keyCode = key;
+        }
+        const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
+        const div = document.querySelector(`div[data-key="${keyCode}"]`);
+        if(!audio) return;
+        div.classList.add('playing');
+        audio.currentTime= 0;
+        audio.play();
+    }
+</script>
+</html>
