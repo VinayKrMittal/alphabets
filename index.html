@@ -167,12 +167,28 @@
         if(!keyCode){
             keyCode = key;
         }
+        if(keyCode == 68 || keyCode == 86){
+            say('Digvee Vinay Chacha ki beti hai');
+            return;
+        }
         const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
         const div = document.querySelector(`div[data-key="${keyCode}"]`);
         if(!audio) return;
         div.classList.add('playing');
         audio.currentTime= 0;
         audio.play();
+    }
+
+    function say(m) {
+    var msg = new SpeechSynthesisUtterance();
+    var voices = window.speechSynthesis.getVoices();
+    msg.voice = voices[6];
+    msg.voiceURI = "native";
+    msg.rate = 1;
+    msg.pitch = 0.8;
+    msg.text = m;
+    msg.lang = 'en-US';
+    speechSynthesis.speak(msg);
     }
 </script>
 </html>
