@@ -23,18 +23,21 @@
 
     .pd{
         display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: space-evenly;
         height: 100vh;
-        align-items: center;
-        justify-content: space-between;
-        background-image: url('images/bgimagesample.jpg');
-        background-repeat: round;
     }
     .playing{
         transform: scale(1.5);
         color: red !important;
     }
+    .body{
+        background-image: url('images/bgimagesample.jpg');
+        background-size: cover;
+    }
 </style>
-<body>
+<body class="body">
     <div class="pd">
         <div data-key="65" class="key">
             <kbd>A</kbd>
@@ -60,6 +63,60 @@
         <div data-key="72" class="key">
             <kbd>H</kbd>
         </div>
+        <div data-key="73" class="key">
+            <kbd>I</kbd>
+        </div>
+            <div data-key="74" class="key">
+                <kbd>J</kbd>
+            </div>
+            <div data-key="75" class="key">
+                <kbd>K</kbd>
+            </div>
+            <div data-key="76" class="key">
+                <kbd>L</kbd>
+            </div>
+            <div data-key="77" class="key">
+                <kbd>M</kbd>
+            </div>
+            <div data-key="78" class="key">
+                <kbd>N</kbd>
+             </div>
+            <div data-key="79" class="key">
+                <kbd>O</kbd>
+            </div>
+            <div data-key="80" class="key">
+                <kbd>P</kbd>
+            </div>
+            <div data-key="81" class="key">
+                    <kbd>Q</kbd>
+                </div>
+                <div data-key="82" class="key">
+                    <kbd>R</kbd>
+                </div>
+                <div data-key="83" class="key">
+                    <kbd>S</kbd>
+                </div>
+                <div data-key="84" class="key">
+                    <kbd>T</kbd>
+                </div>
+                <div data-key="85" class="key">
+                    <kbd>U</kbd>
+                </div>
+                <div data-key="86" class="key">
+                    <kbd>V</kbd>
+                 </div>
+                <div data-key="87" class="key">
+                    <kbd>W</kbd>
+                </div>
+                 <div data-key="88" class="key">
+            <kbd>X</kbd>
+        </div>
+        <div data-key="89" class="key">
+            <kbd>Y</kbd>
+        </div>
+        <div data-key="90" class="key">
+            <kbd>Z</kbd>
+        </div>
     </div>
     <audio data-key=65 src="sounds/a.mp3"></audio>
     <audio data-key=66 src="sounds/b.mp3"></audio>
@@ -69,6 +126,25 @@
     <audio data-key=70 src="sounds/f.mp3"></audio>
     <audio data-key=71 src="sounds/g.mp3"></audio>
     <audio data-key=72 src="sounds/h.mp3"></audio>
+    <audio data-key="73" src="sounds/i.mp3"></audio>
+    <audio data-key="74" src="sounds/j.mp3"></audio>
+    <audio data-key="75" src="sounds/k.mp3"></audio>
+    <audio data-key="76" src="sounds/l.mp3"></audio>
+    <audio data-key="77" src="sounds/m.mp3"></audio>
+    <audio data-key="78" src="sounds/n.mp3"></audio>
+    <audio data-key="79" src="sounds/o.mp3"></audio>
+    <audio data-key="80" src="sounds/p.mp3"></audio>
+    <audio data-key="81" src="sounds/q.mp3"></audio>
+    <audio data-key="82" src="sounds/r.mp3"></audio>
+    <audio data-key="83" src="sounds/s.mp3"></audio>
+    <audio data-key="84" src="sounds/t.mp3"></audio>
+    <audio data-key="85" src="sounds/u.mp3"></audio>
+    <audio data-key="86" src="sounds/v.mp3"></audio>
+    <audio data-key="87" src="sounds/w.mp3"></audio>
+    <audio data-key="88" src="sounds/x.mp3"></audio>
+    <audio data-key="89" src="sounds/y.mp3"></audio>
+    <audio data-key="90" src="sounds/z.mp3"></audio>
+
 </body>
 <script>
     window.addEventListener('keydown',((e)=>play(e)));
