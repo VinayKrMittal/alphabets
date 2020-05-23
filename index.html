@@ -167,10 +167,6 @@
         if(!keyCode){
             keyCode = key;
         }
-        if(keyCode == 68 || keyCode == 86){
-            say('Digvee Vinay Chacha ki beti hai');
-            return;
-        }
         const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
         const div = document.querySelector(`div[data-key="${keyCode}"]`);
         if(!audio) return;
